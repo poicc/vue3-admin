@@ -1,13 +1,10 @@
 import { login, getUserInfo } from '@/api/sys'
 import md5 from 'md5'
-import { setItem, getItem } from '@/utils/storage'
+import { setItem, getItem, removeAllItem } from '@/utils/storage'
 import { TOKEN } from '@/constant'
 import router from '@/router'
 import { setTimeStamp } from '@/utils/auth'
 
-const removeAllItem = () => {
-  localStorage.clear()
-}
 export default {
   namespaced: true,
   state: () => ({
