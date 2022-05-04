@@ -9,7 +9,11 @@
     :unique-opened="true"
     router
   >
-    <sidebar-item v-for="item in routes" :key="item.path" :route="item"></sidebar-item>
+    <sidebar-item
+      v-for="item in routes"
+      :key="item.path"
+      :route="item"
+    ></sidebar-item>
   </el-menu>
 </template>
 
