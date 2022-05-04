@@ -1,7 +1,13 @@
 <template>
-  <div class="app-wrapper">
+  <div
+    class="app-wrapper"
+    :class="[$store.getters.sidebarOpened ? 'openSidebar' : 'hideSidebar']"
+  >
     <!-- 左侧 menu -->
-    <sidebar class="sidebar-container" :style="{ backgroundColor: variables.menuBg}" />
+    <sidebar
+      class="sidebar-container"
+      :style="{ backgroundColor: variables.menuBg }"
+    />
     <div class="main-container">
       <div class="fixed-header">
         <!-- 顶部的 navbar -->
@@ -37,5 +43,9 @@ import variables from '@/styles/variables.module.scss'
   right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
+}
+
+.hideSidebar .fixed-header {
+  width: calc(100% - #{$hideSideBarWidth});
 }
 </style>
