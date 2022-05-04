@@ -1,6 +1,7 @@
 <template>
   <div class="navbar">
     <hamburger class="hamburger-container" />
+    <breadcrumb class="breadcrumb-container" />
     <div class="right-menu">
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -9,8 +10,7 @@
             shape="square"
             :size="40"
             :src="$store.getters.userInfo.avatar"
-          >
-          </el-avatar>
+          ></el-avatar>
           <i class="el-icon-s-tools"></i>
         </div>
         <template #dropdown>
@@ -32,9 +32,10 @@
 </template>
 
 <script setup>
+import Hamburger from '@/components/Hamburger'
+import Breadcrumb from '@/components/Breadcrumb'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import Hamburger from '@/components/Hamburger'
 import { useStore } from 'vuex'
 
 const store = useStore()
@@ -77,7 +78,7 @@ watch(
     float: right;
     padding-right: 16px;
 
-    ::v-deep(avatar-container) {
+    ::v-deep .avatar-container {
       cursor: pointer;
       .avatar-wrapper {
         margin-top: 5px;
@@ -88,6 +89,10 @@ watch(
         }
       }
     }
+  }
+
+  .breadcrumb-container {
+    float: left;
   }
 
   .hamburger-container {
