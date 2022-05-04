@@ -63,7 +63,7 @@ const linkHoverColor = '#304156'
     color: v-bind(linkHoverColor);
   }
 
-  ::v-deep .no-redirect {
+  ::v-deep(.no-redirect) {
     color: #97a8be;
     cursor: text;
   }
