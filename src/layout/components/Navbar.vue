@@ -7,6 +7,7 @@
       <theme-picker class="right-menu-item hover-effect"></theme-picker>
       <lang-select class="right-menu-item hover-effect" />
       <screenfull class="right-menu-item hover-effect" />
+      <guide class="right-menu-item hover-effect" />
 
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -37,6 +38,7 @@
 </template>
 
 <script setup>
+import Guide from '@/components/Guide'
 import ThemePicker from '@/components/ThemeSelect/index'
 import LangSelect from '@/components/LangSelect'
 import Hamburger from '@/components/Hamburger'
