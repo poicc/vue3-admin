@@ -8,7 +8,7 @@
         <el-card>
           <el-tabs v-model="activeName">
             <el-tab-pane :label="$t('msg.profile.feature')" name="feature">
-              <feature />
+              <feature :features="featureData" />
             </el-tab-pane>
             <el-tab-pane :label="$t('msg.profile.chapter')" name="chapter">
               <chapter />
@@ -22,10 +22,7 @@
     </el-row>
   </div>
 </template>
-<feature :features="featureData" />
 
-<script setup>
-</script>
 <script setup>
 import ProjectCard from './components/ProjectCard.vue'
 import Chapter from './components/Chapter.vue'
