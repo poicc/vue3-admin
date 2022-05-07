@@ -93,7 +93,7 @@ export default {
     name: 'poicc',
     job: 'A student majoring in software',
     Introduction:
-      'Live and learn.'
+      'Software major senior Web full stack yyds'
   },
   userInfo: {
     print: 'Print',

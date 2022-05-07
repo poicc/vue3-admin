@@ -92,7 +92,7 @@ export default {
     name: '陈蓉琪',
     job: '一个软件专业的学生',
     Introduction:
-      '活到老学到老'
+      '软件专业的大四学生 Web全栈yyds'
   },
   userInfo: {
     print: '打印',
