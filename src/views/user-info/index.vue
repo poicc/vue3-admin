@@ -1,42 +1,3 @@
-<el-table-column :label="$t('msg.excel.action')" fixed="right" width="260">
-  <template #default="{ row }">
-<el-button type="primary" size="mini" @click="onShowClick(row._id)">
-  {{ $t('msg.excel.show') }}
-    </el-button>
-<el-button type="info" size="mini">{{ $t('msg.excel.showRole') }}</el-button>
-<el-button type="danger" size="mini" @click="onRemoveClick(row)">{{ $t('msg.excel.remove') }}</el-button>
-  </template>
-</el-table-column>
-
-<script setup>
-import { userDetail } from '@/api/user-manage'
-import { watchSwitchLang } from '@/utils/i18n'
-import { defineProps, ref } from 'vue'
-
-const props = defineProps({
-  id: {
-    type: String,
-    required: true
-  }
-})
-
-// 数据相关
-const detailData = ref({})
-const getUserDetail = async () => {
-  detailData.value = await userDetail(props.id)
-}
-getUserDetail()
-// 语言切换
-watchSwitchLang(getUserDetail)
-
-/**
- * 查看按钮点击事件
- */
-const onShowClick = (id) => {
-  router.push(`/user/info/${id}`)
-}
-</script>
-
 <template>
   <div class="user-info-container">
     <el-card class="print-box">
@@ -46,7 +7,6 @@ const onShowClick = (id) => {
       <div class="user-info-box">
         <!-- 标题 -->
         <h2 class="title">{{ $t('msg.userInfo.title') }}</h2>
-
         <div class="header">
           <!-- 头部渲染表格 -->
           <el-descriptions :column="2" border>
@@ -120,6 +80,28 @@ const onShowClick = (id) => {
     </el-card>
   </div>
 </template>
+
+<script setup>
+import { userDetail } from '@/api/user-manage'
+import { watchSwitchLang } from '@/utils/i18n'
+import { defineProps, ref } from 'vue'
+
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+  }
+})
+
+// 数据相关
+const detailData = ref({})
+const getUserDetail = async () => {
+  detailData.value = await userDetail(props.id)
+}
+getUserDetail()
+// 语言切换
+watchSwitchLang(getUserDetail)
+</script>
 
 <style lang="scss" scoped>
 .print-box {
