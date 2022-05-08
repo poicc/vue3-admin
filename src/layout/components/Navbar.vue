@@ -48,9 +48,11 @@ import HeaderSearch from '@/components/HeaderSearch'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { useStore } from 'vuex'
+import { resetRouter } from '@/router'
 
 const store = useStore()
 const logout = () => {
+  resetRouter()
   store.dispatch('user/logout')
 }
 
