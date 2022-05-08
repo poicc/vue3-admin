@@ -56,11 +56,6 @@
               {{ $t('msg.excel.showRole') }}
             </el-button>
 
-            <roles-dialog
-              v-model="roleDialogVisible"
-              :userId="selectUserId"
-              @updateRole="getListData"
-            ></roles-dialog>
             <el-button type="danger" size="mini" @click="onRemoveClick(row)">{{
               $t('msg.excel.remove')
             }}</el-button>
@@ -82,6 +77,12 @@
     </el-card>
 
     <export-to-excel v-model="exportToExcelVisible"></export-to-excel>
+
+    <roles-dialog
+      v-model="roleDialogVisible"
+      :userId="selectUserId"
+      @updateRole="getListData"
+    ></roles-dialog>
   </div>
 </template>
 

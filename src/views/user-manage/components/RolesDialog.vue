@@ -27,6 +27,9 @@
 import { ref, watch } from 'vue'
 import { roleList } from '@/api/role'
 import { watchSwitchLang } from '@/utils/i18n'
+import { useI18n } from 'vue-i18n'
+import { userRoles, updateRole } from '@/api/user-manage'
+import { ElMessage } from 'element-plus'
 
 // 所有角色
 const allRoleList = ref([])
