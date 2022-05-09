@@ -51,11 +51,14 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
 import { ref, onActivated, onMounted } from 'vue'
 import { tableRef, initSortable } from './sortable'
-import { getArticleList } from '@/api/article'
+import { getArticleList, deleteArticle } from '@/api/article'
 import { watchSwitchLang } from '@/utils/i18n'
 import { dynamicData, selectDynamicLabel, tableColumns } from './dynamic'
+import { useI18n } from 'vue-i18n'
+import { ElMessage, ElMessageBox } from 'element-plus'
 /**
  * size 改变触发
  */
@@ -114,6 +117,13 @@ const onRemoveClick = (row) => {
     // 重新渲染数据
     getListData()
   })
+}
+/**
+ * 查看按钮点击事件
+ */
+const router = useRouter()
+const onShowClick = (row) => {
+  router.push(`/article/${row._id}`)
 }
 </script>
 
